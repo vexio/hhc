@@ -13,4 +13,4 @@ Before I begin, this idea and expansion is based off of the extremely popular Mi
 
 ### **What's the status?**
 
-You can watch the progression of the creation of UHHC via [Github](https://github.com/vexio/uhhc), where documentation and others can be found to create your own server to run UHHC.
+Currently, I am developing an outline of UHHC as a whole via [Google Docs](https://docs.google.com/document/d/14HgrlUTtx3M64CHHajEPegmDLqa-SKuBEE7OecddUzE/edit?usp=sharing). Feel free to view and criticize my current thought process of this idea. If you feel something should be different, please contact me via [Twitter (@vexiovevo)](https://twitter.com/vexiovevo)
