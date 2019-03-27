@@ -1,4 +1,5 @@
-# Welcome to Hyper Hardcore ![https://docs.google.com/document/d/14HgrlUTtx3M64CHHajEPegmDLqa-SKuBEE7OecddUzE/edit?usp=sharing](https://vexio.media/cloud/yshqb.png)
+# Welcome to Hyper Hardcore ![](https://vexio.media/cloud/yshqb.png)
+[Current Documentation](https://docs.google.com/document/d/14HgrlUTtx3M64CHHajEPegmDLqa-SKuBEE7OecddUzE/edit?usp=sharing)
 
 
 
