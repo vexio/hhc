@@ -1,0 +1,82 @@
+# // 'core.sk'
+# /
+# / this file pulls is the heart of hhc
+# / do not modify this file unless you know what you're doing'
+# /
+# // 'core.sk'
+
+options:
+	p: "%{m::prefix}%"
+	t: "%{m::textColor}%"
+	h: "%{m::highlightColor}%"
+	permissionError: "%{m::permissionError}%"
+	e: "%{m::errorColor}%"
+
+# // functions
+loadImportantMessages(s: string="load"):
+	load yaml "plugins/HHC/messages.yml" as "messages"
+	set {m::permissionError} to yaml value "permissionError" from "messages"
+	set {m::prefix} to yaml value "prefix" from "messages"
+	set {m::textColor} to yaml value "textColor" from "messages"
+	set {m::highlightColor} to yaml value "highlightColor" from "messages"
+	set {m::errorColor} to yaml value "errorColor" from "messages"
+
+
+
+# // commands
+command /admin [<string="?">] [<string>] [<string>]:
+	permission: command.hhc.admin
+	permission message: %{m::permissionError}%
+	aliases: /hhc:admin
+	trigger:
+		if arg 1 = "?" or "help":
+			send "%{m::prefix}% %{m::highlightColor}% HHC Admin Commands"
+			send "%{m::highlightColor}% - /admin reload"
+			send "%{m::highlightColor}% - /admin "
+
+command /game [<string="?">] [<string>] [<string>]:
+	permission: command.hhc.game
+	permission message: %{m::permissionError}%
+	aliases: /hhc:game
+	trigger:
+		if arg 1 = "?" or "help":
+			send "%{m::prefix}% %{m::highlightColor}% HHC Game Commands"
+			send "%{m::highlightColor}% - /game sethost"
+			send "%{m::highlightColor}% - /game createworld [overworld|nether|end]"
+			send "%{m::highlightColor}% - /game scenarios"
+			send "%{m::highlightColor}% - /game options"
+			send "%{m::highlightColor}% - /game open [timespan]"
+			send "%{m::highlightColor}% - /game start"
+		else if arg 1 = "sethost":
+			set {hhc.host} to sender
+			broadcast "{@p} {@h}%sender%{@t} is now the host."
+		else if arg 1 = "createworld" or "cw":
+			if sender = {hhc.host}:
+				if arg 2 is not set:
+					send "{@e}Argument Error: Worldtype not specified"
+				else if arg 2 = "overworld":
+					createWorld("overworld")
+				else if arg 2 = "nether":
+					createWorld("nether")
+				else if arg 2 = "end":
+					createWorld("end")
+				else:
+					send "{@e}Argument Error: Worldtype ""%arg-2%"" is not valid"
+			else:
+				send "{@e}Permission Error: You are not the Host"
+		else if arg 1 = "scenarios":
+			drawGUI(sender, "scenarios-1")
+		else if arg 1 = "options":
+			drawGUI(sender, "options-1")
+		else if arg 1 = "open":
+			if arg 2 is a timespan:
+				whitelist("disable", "")
+				startTimer(timespan, "lobby")
+				broadcast "{@p} Server is now open"
+				broadcast "{@p} Lobby Time: {@h}%{timer.f}%"
+			else:
+				send "{@e}Argument Error: Timespan ""%arg-2%"" is not valid"
+				send "{@e}Timespan Example: '10m 30s'"
+		else if arg 1 = "start":
+
+

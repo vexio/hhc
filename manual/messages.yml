@@ -1,0 +1,5 @@
+prefix: &6[&lHHC&r&6]&r
+textColor: &r
+highlightColor: &a
+errorColor: &c
+permissionError: &cInsufficient Permissions

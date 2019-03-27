@@ -1,0 +1,11 @@
+# // 'config.sk'
+# /
+# / this file pulls from all config files and loads them into the server's cache
+# / this file requires 'skript-yaml' addon
+# / do not modify this file unless you know what you're doing
+# /
+# // 'config.sk'
+
+on script load:
+	load yaml "plugins/HHC/config.yml" as "config"
+	load yaml "plugins/HHC/messages.yml" as "messages"
