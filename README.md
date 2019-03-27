@@ -1,4 +1,5 @@
-# Welcome to Hyper Hardcore
+# Welcome to Hyper Hardcore ![](https://vexio.media/cloud/yshqb.png)
+
 
 
 ### **What is UHC?**
